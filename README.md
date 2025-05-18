@@ -9,12 +9,13 @@ Built with:
 - Flutter framework for cross-platform development
 - BLoC pattern for state management
 - Local database using SQLite3 with Drift ORM
+- External REST API integration using backend service ([Backend Repository](https://github.com/lpm556dev/backend))
 - Clean architecture principles
 ## Project Setup
 
 1. Clone this repository and ensure your directory is named `ssg_app`:
 ```bash
-git clone <repository-url> ssg_app
+git clone https://github.com/lpm556dev/siapgunamobile.git ssg_app
 cd ssg_app
 ```
 
