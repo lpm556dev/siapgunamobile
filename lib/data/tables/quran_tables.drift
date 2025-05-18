@@ -1,0 +1,56 @@
+CREATE TABLE m_quran_t (
+  no_surat    INTEGER,
+  nm_surat    TEXT,
+  nm_surat2   TEXT,
+  arti_surat  TEXT,
+  jml_ayat    INTEGER,
+  tmp_turun   TEXT,
+  asb_nuzul   TEXT,
+  finish      INTEGER
+);
+
+CREATE TABLE d_footer_t (
+  no_surat  INTEGER,
+  no_ayat   INTEGER,
+  no_foot   INTEGER,
+  t_foot    INTEGER,
+  catatan   INTEGER
+);
+
+CREATE TABLE d_pilihan_t (
+  no_surat  INTEGER,
+  no_ayat   INTEGER,
+  konten    INTEGER
+);
+
+CREATE TABLE m_pilihan_t (
+  no_pil   INTEGER,
+  konten   TEXT
+);
+
+CREATE TABLE m_hal_t (
+  no_hal      INTEGER,
+  no_surat1   INTEGER,
+  no_awal     INTEGER,
+  no_surat2   INTEGER,
+  no_akhir    INTEGER
+);
+
+CREATE TABLE m_juz_t (
+  no_juz   INTEGER,
+  no_surat INTEGER,
+  no_ayat  INTEGER,
+  no_hal   INTEGER
+);
+
+CREATE TABLE m_surat_t (
+  no_surat            INTEGER,
+  no_ayat             INTEGER,
+  no_juz              INTEGER,
+  no_hal              INTEGER,
+  tafsir              TEXT,
+  tafsir_muasir       TEXT,
+  tafsir_clearQuran   TEXT,
+  tafsir_sureQuran    TEXT,
+  arab                TEXT
+);
