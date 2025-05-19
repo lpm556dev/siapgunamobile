@@ -105,7 +105,7 @@ class IndexPage extends StatelessWidget {
                             AppButton(
                               text: "Daftar",
                               onPressedButton: () {
-                                AppHelpers.launchUrlPath(dotenv.env['APP_REGISTRATION_URL']);
+                                AppHelpers.launchUrlPath(dotenv.env['APP_REGISTRATION_URL'] ?? 'https://santri.siapguna.org/login/signup');
                               },
                               bgColor: AppColors.accentColor,
                               fgColor: AppColors.darkColor,

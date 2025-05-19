@@ -219,7 +219,7 @@ class LoginPage extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 20.0),
                               child: GestureDetector(
                                 onTap: () {
-                                  AppHelpers.launchUrlPath(dotenv.env['APP_REGISTRATION_URL']);
+                                  AppHelpers.launchUrlPath(dotenv.env['APP_REGISTRATION_URL'] ?? 'https://santri.siapguna.org/login/signup');
                                 },
                                 child: Text(
                                   "Belum punya akun?",
