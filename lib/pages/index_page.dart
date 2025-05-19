@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:ssg_app/pages/forms/login_page.dart';
 import 'package:ssg_app/utils/app_helpers.dart';
 import 'package:ssg_app/utils/app_colors.dart';
@@ -104,7 +105,7 @@ class IndexPage extends StatelessWidget {
                             AppButton(
                               text: "Daftar",
                               onPressedButton: () {
-                                AppHelpers.launchUrlPath();
+                                AppHelpers.launchUrlPath(dotenv.env['APP_REGISTRATION_URL']);
                               },
                               bgColor: AppColors.accentColor,
                               fgColor: AppColors.darkColor,

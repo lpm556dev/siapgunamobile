@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ssg_app/blocs/auth/auth_bloc.dart';
 import 'package:ssg_app/blocs/check_box/check_box_bloc.dart';
@@ -218,7 +219,7 @@ class LoginPage extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 20.0),
                               child: GestureDetector(
                                 onTap: () {
-                                  AppHelpers.launchUrlPath();
+                                  AppHelpers.launchUrlPath(dotenv.env['APP_REGISTRATION_URL']);
                                 },
                                 child: Text(
                                   "Belum punya akun?",

@@ -84,7 +84,7 @@ class AppHelpers {
         throw 'Could not launch $url';
       }
     } catch (e) {
-      debugPrint('Error launching URL: $e');
+      print('Error launching URL: $e');
     }
   }
 }
