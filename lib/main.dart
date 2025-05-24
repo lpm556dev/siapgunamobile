@@ -64,6 +64,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: bool.parse(dotenv.env['DEBUG_MODE']!),
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          fontFamily: 'Poppins'
         ),
         home: SplashScreen(),
       ),

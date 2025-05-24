@@ -173,7 +173,7 @@ class BodySurah extends StatelessWidget {
                                                         child: Text(
                                                           textAlign: TextAlign.left,
                                                           ayat.tafsir ?? '',
-                                                          style: AppTextStyle.bodyText.copyWith(fontSize: fzState.size),
+                                                          style: AppTextStyle.tarjamah.copyWith(fontSize: fzState.size),
                                                         ),
                                                       ),
                                                     ],

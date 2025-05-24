@@ -54,8 +54,19 @@ class HomeScreen extends StatelessWidget {
                                   leading: CircleAvatar(
                                     child: Text(state.username[0]),
                                   ),
-                                  title: Text(
-                                    "Assalamu'alaikum, ${AppHelpers.toCapitalize(state.username)}",
+                                  title: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Assalamu'alaikum,",
+                                      ),
+                                      Text(AppHelpers.toCapitalize(state.username), style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: 'Poppins'
+                                      ),)
+                                    ],
                                   ),
                                   subtitle: Padding(
                                     padding: const EdgeInsets.symmetric(
@@ -70,8 +81,9 @@ class HomeScreen extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14,
                                       ),
-                                  titleTextStyle: AppTextStyle.title2.copyWith(
-                                    fontSize: 18,
+                                  titleTextStyle: AppTextStyle.tarjamah.copyWith(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700
                                   ),
                                 ),
                               ],
@@ -145,7 +157,7 @@ class HomeScreen extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14,
                                     ),
-                                titleTextStyle: AppTextStyle.title2.copyWith(
+                                titleTextStyle: AppTextStyle.tarjamah.copyWith(
                                   fontSize: 18,
                                 ),
                               ),

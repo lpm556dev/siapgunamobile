@@ -79,7 +79,7 @@ class AppHelpers {
     try {  
       final Uri url = Uri.parse(pathUrl ?? dotenv.env['APP_REGISTRATION_URL']!);
       if (await canLaunchUrl(url)) {
-        await launchUrl(url, mode: LaunchMode.externalApplication);
+        await launchUrl(url, mode: LaunchMode.platformDefault);
       } else {
         throw 'Could not launch $url';
       }

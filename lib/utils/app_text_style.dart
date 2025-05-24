@@ -38,7 +38,9 @@ class AppTextStyle {
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle quran = GoogleFonts.amiriQuran(height: 2.5);
+  static TextStyle quran = TextStyle(height: 2.5, fontFamily: 'LitelPmq');
+
+  static TextStyle tarjamah = GoogleFonts.numans();
 
   static TextStyle cardText = GoogleFonts.sourceCodePro();
 }

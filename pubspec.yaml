@@ -115,6 +115,15 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  #
+  fonts:
+  - family: Numans
+    fonts:
+      - asset: assets/fonts/numans.ttf
+  - family: LitelPmq
+    fonts:
+      - asset: assets/fonts/litelpmq.ttf
+  - family: Poppins
+    fonts:
+      - asset: assets/fonts/Poppins-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

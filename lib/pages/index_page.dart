@@ -61,8 +61,10 @@ class IndexPage extends StatelessWidget {
                             ),
                             child: Text(
                               "Assalamu'Alaikum",
-                              style: AppTextStyle.title2.copyWith(
+                              style: AppTextStyle.tarjamah.copyWith(
                                 color: AppColors.lightColor,
+                                fontWeight: FontWeight.w900,
+                                fontSize: 24
                               ),
                             ),
                           ),
