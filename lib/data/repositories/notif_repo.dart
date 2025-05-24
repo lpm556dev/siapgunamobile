@@ -26,13 +26,6 @@ class NotifRepository {
       message: 'Ada berita baru dari komunitas.',
       time: '10:15',
     ),
-    NotifModel(
-      id: '4',
-      title: "Lorem",
-      message:
-          "Restarted application in 2.331ms. I/flutter ( 5478): state render W/example.ssg_ap( 5478): Reducing the number of considered missed Gc histogram windows from 108 to 100",
-      time: '08:00',
-    ),
   ];
 
   //init settings
