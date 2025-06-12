@@ -322,9 +322,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                                     AppColors.primaryColor,
                                                 bordered: true,
                                               ).build(),
-                                            const SizedBox(width: 5.5),
+                                            const SizedBox(width: 0.5),
                                             AppButton(
                                               text: "Lanjutkan",
+                                              fnSize: 15,
                                               onPressedButton: currentStep.count != 0
                                                   ? () {
                                                       if (_validateForm()) {
@@ -1148,26 +1149,29 @@ class _RegisterPageState extends State<RegisterPage> {
                                                                           .w800,
                                                                 ),
                                                           ),
-                                                          GestureDetector(
-                                                            onTap: () {
-                                                              debugPrint(
-                                                                "Policy tap!",
-                                                              );
-                                                            },
-                                                            child: Text(
-                                                              "Kebijakan Privasi",
-                                                              style: AppTextStyle
-                                                                  .bodyText
-                                                                  .copyWith(
-                                                                    color:
-                                                                        AppColors
-                                                                            .skyColor,
-                                                                    fontSize:
-                                                                        8.8,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w800,
-                                                                  ),
+                                                          Expanded(
+                                                            child: GestureDetector(
+                                                              onTap: () {
+                                                                debugPrint(
+                                                                  "Policy tap!",
+                                                                );
+                                                              },
+                                                              child: Text(
+                                                                "Kebijakan Privasi",
+                                                                style: AppTextStyle
+                                                                    .bodyText
+                                                                    .copyWith(
+                                                                      overflow: TextOverflow.ellipsis,
+                                                                      color:
+                                                                          AppColors
+                                                                              .skyColor,
+                                                                      fontSize:
+                                                                          8.8,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w800,
+                                                                    ),
+                                                              ),
                                                             ),
                                                           ),
                                                         ],
