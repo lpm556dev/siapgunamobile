@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                                       vertical: 10,
                                     ),
                                     child: Text(
-                                      state.role == '1a' ? 'Peserta' : 'Umum',
+                                      state.role == '1a' ? 'Peserta' : 'Calon Peserta',
                                     ),
                                   ),
                                   subtitleTextStyle: AppTextStyle.subtitle
@@ -150,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                                   padding: const EdgeInsets.symmetric(
                                     vertical: 10,
                                   ),
-                                  child: Text('Umum'),
+                                  child: Text('Calon Peserta'),
                                 ),
                                 subtitleTextStyle: AppTextStyle.subtitle
                                     .copyWith(
@@ -246,13 +246,13 @@ class HomeScreen extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       Text(
-                                        "${AppListComponent.daysName[DateTime.now().weekday - 1]},",
+                                        "${AppListComponent.daysName[DateTime.now().weekday]},",
                                         style: AppTextStyle.subtitle.copyWith(
                                           color: AppColors.lightColor,
                                         ),
                                       ),
                                       Text(
-                                        "${DateTime.now().day} ${AppListComponent.monthName[DateTime.now().month - 1]} ${DateTime.now().year}",
+                                        "${DateTime.now().day} ${AppListComponent.monthName[DateTime.now().month-1]} ${DateTime.now().year}",
                                         style: AppTextStyle.label.copyWith(
                                           color: AppColors.lightColor,
                                         ),

@@ -7,7 +7,6 @@ import 'package:ssg_app/blocs/counter_cubit/counter_cubit.dart';
 import 'package:ssg_app/blocs/radio/radio_button_bloc.dart';
 import 'package:ssg_app/blocs/register/register_bloc.dart';
 import 'package:ssg_app/data/repositories/user_repo.dart';
-import 'package:ssg_app/models/User.dart';
 import 'package:ssg_app/pages/forms/login_page.dart';
 import 'package:ssg_app/utils/app_colors.dart';
 import 'package:ssg_app/utils/app_helpers.dart';
@@ -220,51 +219,7 @@ class RegisterPage extends StatelessWidget {
                                                 hint: "Nama Sesuai KTP",
                                                 required: true,
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: value,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                    
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                               ).input(),
                                               AppInput(
@@ -275,51 +230,7 @@ class RegisterPage extends StatelessWidget {
                                                     TextInputType.number,
                                                 yPadding: 5.5,
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: value,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                    
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          nik: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                               ).input(),
                                               BlocBuilder<
@@ -352,98 +263,10 @@ class RegisterPage extends StatelessWidget {
                                                       }
                                                     },
                                                     onChange: (value) {
-                                                      if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: value,
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                    
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          tempatLahir: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                      
                                                     },
                                                     onChangeSecond: (value) {
-                                                      if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: value,
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                    
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          tanggalLahir: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                      
                                                     },
                                                     secondController:
                                                         TextEditingController(
@@ -530,51 +353,7 @@ class RegisterPage extends StatelessWidget {
                                                                                   '1',
                                                                             ),
                                                                           );
-                                                                      if (fmState is RegisterInitial) {
-                                                                        context.read<RegisterBloc>().add(
-                                                                          InputChange(
-                                                                            UserModel(
-                                                                              namaLengkap: fmState.user!.namaLengkap,
-                                                                              nik: fmState.user!.nik,
-                                                                              jenisKelamin: true,
-                                                                              tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                                              tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                                              golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                                              alamat: fmState.user!.alamat ?? "",
-                                                                              rt: fmState.user!.rt ?? "",
-                                                                              rw: fmState.user!.rw ?? "",
-                                                                              kodePos: fmState.user!.kodePos ?? "",
-                                                                              kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                                              kecamatan: fmState.user!.kecamatan ?? "",
-                                                                              kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                                              provinsi: fmState.user!.provinsi ?? "",
-                                                                              domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                                              domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                                              domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                                              domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                                              domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                                              nomorHp: fmState.user!.nomorHp ?? "",
-                                                                              email: fmState.user!.email ?? "",
-                                                                              agama: "islam",
-                                                                              password: fmState.user!.password,
-                                                                              domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                                              domisiliRt: fmState.user!.rt ?? "",
-                                                                              domisiliRw: fmState.user!.rw ?? "",
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                        
-                                                                      }else{
-                                                                        context
-                                                                        .read<RegisterBloc>()
-                                                                        .add(
-                                                                          InputChange(
-                                                                            UserModel(
-                                                                              jenisKelamin: true,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      }
+                                                                      
                                                                     },
                                                                   );
                                                                 },
@@ -624,51 +403,7 @@ class RegisterPage extends StatelessWidget {
                                                                                   '0',
                                                                             ),
                                                                           );
-                                                                      if (fmState is RegisterInitial) {
-                                                                        context.read<RegisterBloc>().add(
-                                                                          InputChange(
-                                                                            UserModel(
-                                                                              namaLengkap: fmState.user!.namaLengkap,
-                                                                              nik: fmState.user!.nik,
-                                                                              jenisKelamin: false,
-                                                                              tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                                              tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                                              golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                                              alamat: fmState.user!.alamat ?? "",
-                                                                              rt: fmState.user!.rt ?? "",
-                                                                              rw: fmState.user!.rw ?? "",
-                                                                              kodePos: fmState.user!.kodePos ?? "",
-                                                                              kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                                              kecamatan: fmState.user!.kecamatan ?? "",
-                                                                              kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                                              provinsi: fmState.user!.provinsi ?? "",
-                                                                              domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                                              domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                                              domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                                              domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                                              domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                                              nomorHp: fmState.user!.nomorHp ?? "",
-                                                                              email: fmState.user!.email ?? "",
-                                                                              agama: "islam",
-                                                                              password: fmState.user!.password,
-                                                                              domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                                              domisiliRt: fmState.user!.rt ?? "",
-                                                                              domisiliRw: fmState.user!.rw ?? "",
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                        
-                                                                      }else{
-                                                                        context
-                                                                        .read<RegisterBloc>()
-                                                                        .add(
-                                                                          InputChange(
-                                                                            UserModel(
-                                                                              jenisKelamin: false,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      }
+                                                                      
                                                                     },
                                                                   );
                                                                 },
@@ -753,51 +488,7 @@ class RegisterPage extends StatelessWidget {
                                                                                       'A',
                                                                                 ),
                                                                               );
-                                                                          if (fmState is RegisterInitial) {
-                                                                            context.read<RegisterBloc>().add(
-                                                                              InputChange(
-                                                                                UserModel(
-                                                                                  namaLengkap: fmState.user!.namaLengkap,
-                                                                                  nik: fmState.user!.nik,
-                                                                                  jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                                                  tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                                                  tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                                                  golonganDarah: 'A',
-                                                                                  alamat: fmState.user!.alamat ?? "",
-                                                                                  rt: fmState.user!.rt ?? "",
-                                                                                  rw: fmState.user!.rw ?? "",
-                                                                                  kodePos: fmState.user!.kodePos ?? "",
-                                                                                  kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                                                  kecamatan: fmState.user!.kecamatan ?? "",
-                                                                                  kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                                                  provinsi: fmState.user!.provinsi ?? "",
-                                                                                  domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                                                  domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                                                  domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                                                  domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                                                  domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                                                  nomorHp: fmState.user!.nomorHp ?? "",
-                                                                                  email: fmState.user!.email ?? "",
-                                                                                  agama: "islam",
-                                                                                  password: fmState.user!.password,
-                                                                                  domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                                                  domisiliRt: fmState.user!.rt ?? "",
-                                                                                  domisiliRw: fmState.user!.rw ?? "",
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                            
-                                                                          }else{
-                                                                            context
-                                                                            .read<RegisterBloc>()
-                                                                            .add(
-                                                                              InputChange(
-                                                                                UserModel(
-                                                                                  golonganDarah: "A",
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          }
+                                                                          
                                                                         },
                                                                       );
                                                                     },
@@ -844,51 +535,7 @@ class RegisterPage extends StatelessWidget {
                                                                                       'AB',
                                                                                 ),
                                                                               );
-                                                                          if (fmState is RegisterInitial) {
-                                                                            context.read<RegisterBloc>().add(
-                                                                              InputChange(
-                                                                                UserModel(
-                                                                                  namaLengkap: fmState.user!.namaLengkap,
-                                                                                  nik: fmState.user!.nik,
-                                                                                  jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                                                  tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                                                  tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                                                  golonganDarah: 'AB',
-                                                                                  alamat: fmState.user!.alamat ?? "",
-                                                                                  rt: fmState.user!.rt ?? "",
-                                                                                  rw: fmState.user!.rw ?? "",
-                                                                                  kodePos: fmState.user!.kodePos ?? "",
-                                                                                  kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                                                  kecamatan: fmState.user!.kecamatan ?? "",
-                                                                                  kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                                                  provinsi: fmState.user!.provinsi ?? "",
-                                                                                  domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                                                  domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                                                  domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                                                  domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                                                  domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                                                  nomorHp: fmState.user!.nomorHp ?? "",
-                                                                                  email: fmState.user!.email ?? "",
-                                                                                  agama: "islam",
-                                                                                  password: fmState.user!.password,
-                                                                                  domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                                                  domisiliRt: fmState.user!.rt ?? "",
-                                                                                  domisiliRw: fmState.user!.rw ?? "",
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                            
-                                                                          }else{
-                                                                            context
-                                                                            .read<RegisterBloc>()
-                                                                            .add(
-                                                                              InputChange(
-                                                                                UserModel(
-                                                                                  golonganDarah: "AB",
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          }
+                                                                          
                                                                         },
                                                                       );
                                                                     },
@@ -939,51 +586,7 @@ class RegisterPage extends StatelessWidget {
                                                                                       'B',
                                                                                 ),
                                                                               );
-                                                                          if (fmState is RegisterInitial) {
-                                                                            context.read<RegisterBloc>().add(
-                                                                              InputChange(
-                                                                                UserModel(
-                                                                                  namaLengkap: fmState.user!.namaLengkap,
-                                                                                  nik: fmState.user!.nik,
-                                                                                  jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                                                  tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                                                  tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                                                  golonganDarah: 'B',
-                                                                                  alamat: fmState.user!.alamat ?? "",
-                                                                                  rt: fmState.user!.rt ?? "",
-                                                                                  rw: fmState.user!.rw ?? "",
-                                                                                  kodePos: fmState.user!.kodePos ?? "",
-                                                                                  kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                                                  kecamatan: fmState.user!.kecamatan ?? "",
-                                                                                  kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                                                  provinsi: fmState.user!.provinsi ?? "",
-                                                                                  domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                                                  domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                                                  domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                                                  domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                                                  domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                                                  nomorHp: fmState.user!.nomorHp ?? "",
-                                                                                  email: fmState.user!.email ?? "",
-                                                                                  agama: "islam",
-                                                                                  password: fmState.user!.password,
-                                                                                  domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                                                  domisiliRt: fmState.user!.rt ?? "",
-                                                                                  domisiliRw: fmState.user!.rw ?? "",
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                            
-                                                                          }else{
-                                                                            context
-                                                                            .read<RegisterBloc>()
-                                                                            .add(
-                                                                              InputChange(
-                                                                                UserModel(
-                                                                                  golonganDarah: "B",
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          }
+                                                                          
                                                                         },
                                                                       );
                                                                     },
@@ -1030,51 +633,7 @@ class RegisterPage extends StatelessWidget {
                                                                                       'O',
                                                                                 ),
                                                                               );
-                                                                          if (fmState is RegisterInitial) {
-                                                                            context.read<RegisterBloc>().add(
-                                                                              InputChange(
-                                                                                UserModel(
-                                                                                  namaLengkap: fmState.user!.namaLengkap,
-                                                                                  nik: fmState.user!.nik,
-                                                                                  jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                                                  tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                                                  tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                                                  golonganDarah: 'O',
-                                                                                  alamat: fmState.user!.alamat ?? "",
-                                                                                  rt: fmState.user!.rt ?? "",
-                                                                                  rw: fmState.user!.rw ?? "",
-                                                                                  kodePos: fmState.user!.kodePos ?? "",
-                                                                                  kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                                                  kecamatan: fmState.user!.kecamatan ?? "",
-                                                                                  kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                                                  provinsi: fmState.user!.provinsi ?? "",
-                                                                                  domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                                                  domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                                                  domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                                                  domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                                                  domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                                                  nomorHp: fmState.user!.nomorHp ?? "",
-                                                                                  email: fmState.user!.email ?? "",
-                                                                                  agama: "islam",
-                                                                                  password: fmState.user!.password,
-                                                                                  domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                                                  domisiliRt: fmState.user!.rt ?? "",
-                                                                                  domisiliRw: fmState.user!.rw ?? "",
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                            
-                                                                          }else{
-                                                                            context
-                                                                            .read<RegisterBloc>()
-                                                                            .add(
-                                                                              InputChange(
-                                                                                UserModel(
-                                                                                  golonganDarah: "O",
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          }
+                                                                          
                                                                         },
                                                                       );
                                                                     },
@@ -1103,50 +662,7 @@ class RegisterPage extends StatelessWidget {
                                                 hint: "Alamat Sesuai KTP",
                                                 required: true,
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: value,
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          alamat: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                 
                                                 },
                                               ).input(),
                                               AppInput(
@@ -1159,146 +675,17 @@ class RegisterPage extends StatelessWidget {
                                                 secondHint: "RW",
                                                 required: true,
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: value,
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          rt: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                                 onChangeSecond: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: value,
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          rw: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                               ).dualInput(),
                                               AppInput(
                                                 label: "KODE POS",
                                                 hint: "Kode Pos",
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: value,
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          kodePos: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                                 required: true,
                                                 keyboardType:
@@ -1312,96 +699,10 @@ class RegisterPage extends StatelessWidget {
                                                 secondHint: "Kecamatan",
                                                 yPadding: 5.5,
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: value,
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          kelurahanDesa: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                                 onChangeSecond: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: value,
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          kecamatan: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                               ).dualInput(),
                                               AppInput(
@@ -1412,96 +713,10 @@ class RegisterPage extends StatelessWidget {
                                                 secondHint: "Provinsi",
                                                 yPadding: 5.5,
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: value,
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          kabupatenKota: value
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                                 onChangeSecond: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: value,
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          provinsi: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                               ).dualInput(),
                                               SizedBox(height: 20.0),
@@ -1520,96 +735,10 @@ class RegisterPage extends StatelessWidget {
                                                 secondLabel: "KECAMATAN",
                                                 secondHint: "Kecamatan",
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: value,
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          domisiliKelurahanDesa: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                                 onChangeSecond: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: value,
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          domisiliKecamatan: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                                 yPadding: 5.5,
                                               ).dualInput(),
@@ -1620,96 +749,10 @@ class RegisterPage extends StatelessWidget {
                                                 secondLabel: "PROVINSI",
                                                 secondHint: "Provinsi",
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: value,
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          domisiliKabupatenKota: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                                 onChangeSecond: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: value,
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          domisiliProvinsi: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                                 yPadding: 5.5,
                                               ).dualInput(),
@@ -1719,50 +762,7 @@ class RegisterPage extends StatelessWidget {
                                                     "Alamat Domisili Sekarang",
                                                 required: true,
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: value,
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          domisiliAlamat: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                               ).input(),
                                               SizedBox(height: 20.0),
@@ -1801,50 +801,7 @@ class RegisterPage extends StatelessWidget {
                                                 keyboardType:
                                                     TextInputType.phone,
                                                 onChange: (value) {
-                                                  if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: value,
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: fmState.user!.password,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          nomorHp: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                  
                                                 },
                                               ).input(),
                                               BlocProvider(
@@ -1881,50 +838,7 @@ class RegisterPage extends StatelessWidget {
                                                             );
                                                       },
                                                       onChange: (value) {
-                                                        if (fmState is RegisterInitial) {
-                                                    context.read<RegisterBloc>().add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          namaLengkap: fmState.user!.namaLengkap,
-                                                          nik: fmState.user!.nik,
-                                                          jenisKelamin: fmState.user!.jenisKelamin ?? true,
-                                                          tempatLahir: fmState.user!.tempatLahir ?? "",
-                                                          tanggalLahir: fmState.user!.tanggalLahir ?? DateTime.now(),
-                                                          golonganDarah: fmState.user!.golonganDarah ?? "",
-                                                          alamat: fmState.user!.alamat ?? "",
-                                                          rt: fmState.user!.rt ?? "",
-                                                          rw: fmState.user!.rw ?? "",
-                                                          kodePos: fmState.user!.kodePos ?? "",
-                                                          kelurahanDesa: fmState.user!.kelurahanDesa ?? "",
-                                                          kecamatan: fmState.user!.kecamatan ?? "",
-                                                          kabupatenKota: fmState.user!.kabupatenKota ?? "",
-                                                          provinsi: fmState.user!.provinsi ?? "",
-                                                          domisiliKodePos: fmState.user!.domisiliKodePos ?? "",
-                                                          domisiliKelurahanDesa: fmState.user!.domisiliKelurahanDesa ?? "",
-                                                          domisiliKecamatan: fmState.user!.domisiliKecamatan ?? "",
-                                                          domisiliKabupatenKota: fmState.user!.domisiliKabupatenKota ?? "",
-                                                          domisiliProvinsi: fmState.user!.domisiliProvinsi ?? "",
-                                                          nomorHp: fmState.user!.nomorHp ?? "",
-                                                          email: fmState.user!.email ?? "",
-                                                          agama: "islam",
-                                                          password: value,
-                                                          domisiliAlamat: fmState.user!.domisiliAlamat ?? "",
-                                                          domisiliRt: fmState.user!.rt ?? "",
-                                                          domisiliRw: fmState.user!.rw ?? "",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }else{
-                                                    context
-                                                    .read<RegisterBloc>()
-                                                    .add(
-                                                      InputChange(
-                                                        UserModel(
-                                                          password: value,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
+                                                        
                                                       },
                                                     ).input();
                                                   },

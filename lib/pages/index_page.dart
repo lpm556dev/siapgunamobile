@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:ssg_app/pages/forms/login_page.dart';
+import 'package:ssg_app/pages/forms/register_page.dart';
 import 'package:ssg_app/utils/app_helpers.dart';
 import 'package:ssg_app/utils/app_colors.dart';
 import 'package:ssg_app/utils/app_text_style.dart';
@@ -64,7 +64,7 @@ class IndexPage extends StatelessWidget {
                               style: AppTextStyle.tarjamah.copyWith(
                                 color: AppColors.lightColor,
                                 fontWeight: FontWeight.w900,
-                                fontSize: 24
+                                fontSize: 24,
                               ),
                             ),
                           ),
@@ -107,7 +107,7 @@ class IndexPage extends StatelessWidget {
                             AppButton(
                               text: "Daftar",
                               onPressedButton: () {
-                                AppHelpers.launchUrlPath(dotenv.env['APP_REGISTRATION_URL'] ?? 'https://santri.siapguna.org/login/signup');
+                                AppHelpers.goTo(context, RegisterPage(),true, true);
                               },
                               bgColor: AppColors.accentColor,
                               fgColor: AppColors.darkColor,

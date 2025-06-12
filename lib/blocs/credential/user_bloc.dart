@@ -11,6 +11,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       try {
         final String username = await UserRepository.getString("username");
         final int userId = await UserRepository.getInteger("userId");
+        print("userId: $userId");
         final String role = await UserRepository.getString("role");
 
         if (username.isNotEmpty && userId > 0 && role.isNotEmpty) {

@@ -53,4 +53,25 @@ class TaskRepository {
       throw Exception('Failed to load task: $e');
     }
   }
+
+  static Future<bool> getCurrent(userId,DateTime date) async {
+    try {
+      print("date current: ${date.year}-${date.month}-${date.day}");
+      final response = http.Request('GET', Uri.parse(ApiEndpoint.currentMy(userId.toString())))
+        ..headers['Content-Type'] = 'application/json'
+        ..body = jsonEncode({'date': "${date.year}-${date.month}-${date.day}"});
+
+      final streamedResponse = await response.send();
+      final result = await http.Response.fromStream(streamedResponse);
+      print('Response status: ${result.statusCode}');
+      if(result.statusCode != 200) {
+        throw Exception('Failed to fetch data: ${result.body}');
+      }
+      print('Response body: ${result.body}');
+      return true;
+    } catch (e) {
+      print('Error fetching current task: $e');
+      return false;
+    }
+  }
 }

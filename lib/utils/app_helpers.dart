@@ -16,6 +16,20 @@ class AppHelpers {
     return picked;
   }
 
+  static Future<void> lodaData(isOk, isNotOk, isMount, isData) async {
+    try {
+      final data = await isData;
+      if (isMount) {
+        isOk(data);
+      }
+    } catch (e) {
+      if (isMount) {
+        isNotOk();
+      }
+      print("Error: $e");
+    }
+  }
+
   static void goTo(
     BuildContext context,
     Widget route, [

@@ -146,11 +146,10 @@ class UserRepository {
         } else {
           throw Exception('Login failed');
         }
-      }else{
+      } else {
         throw Exception(otpResponse);
       }
     } catch (e) {
-      print("Error: $e");
       String errorMessage = e.toString();
       errorMessage = errorMessage.replaceAll(
         'Exception: Network error: Exception: ',
