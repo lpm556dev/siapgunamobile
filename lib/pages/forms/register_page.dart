@@ -7,6 +7,7 @@ import 'package:ssg_app/blocs/counter_cubit/counter_cubit.dart';
 import 'package:ssg_app/blocs/radio/radio_button_bloc.dart';
 import 'package:ssg_app/blocs/register/register_bloc.dart';
 import 'package:ssg_app/data/repositories/user_repo.dart';
+import 'package:ssg_app/models/User.dart';
 import 'package:ssg_app/pages/forms/login_page.dart';
 import 'package:ssg_app/utils/app_colors.dart';
 import 'package:ssg_app/utils/app_helpers.dart';
@@ -15,8 +16,143 @@ import 'package:ssg_app/widgets/app_alert.dart';
 import 'package:ssg_app/widgets/app_button.dart';
 import 'package:ssg_app/widgets/app_input.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController _namaLengkapController = TextEditingController();
+  final TextEditingController _nikController = TextEditingController();
+  final TextEditingController _tempatLahirController = TextEditingController();
+  final TextEditingController _alamatController = TextEditingController();
+  final TextEditingController _rtController = TextEditingController();
+  final TextEditingController _rwController = TextEditingController();
+  final TextEditingController _kodePosController = TextEditingController();
+  final TextEditingController _kelurahanDesaController = TextEditingController();
+  final TextEditingController _kecamatanController = TextEditingController();
+  final TextEditingController _kabupatenKotaController = TextEditingController();
+  final TextEditingController _provinsiController = TextEditingController();
+  
+  // Domisili Controllers
+  final TextEditingController _domisiliKelurahanDesaController = TextEditingController();
+  final TextEditingController _domisiliKecamatanController = TextEditingController();
+  final TextEditingController _domisiliKabupatenKotaController = TextEditingController();
+  final TextEditingController _domisiliProvinsiController = TextEditingController();
+  final TextEditingController _domisiliAlamatController = TextEditingController();
+  final TextEditingController _domisiliRtController = TextEditingController();
+  final TextEditingController _domisiliRwController = TextEditingController();
+  final TextEditingController _domisiliKodePosController = TextEditingController();
+  
+  // Contact Controllers
+  final TextEditingController _nomorHpController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+
+  // Form Data
+  String? selectedJenisKelamin;
+  String? selectedGolonganDarah;
+  DateTime? selectedTanggalLahir;
+  bool isTermsAccepted = false;
+
+  @override
+  void dispose() {
+    // Dispose all controllers
+    _namaLengkapController.dispose();
+    _nikController.dispose();
+    _tempatLahirController.dispose();
+    _alamatController.dispose();
+    _rtController.dispose();
+    _rwController.dispose();
+    _kodePosController.dispose();
+    _kelurahanDesaController.dispose();
+    _kecamatanController.dispose();
+    _kabupatenKotaController.dispose();
+    _provinsiController.dispose();
+    _domisiliKelurahanDesaController.dispose();
+    _domisiliKecamatanController.dispose();
+    _domisiliKabupatenKotaController.dispose();
+    _domisiliProvinsiController.dispose();
+    _domisiliAlamatController.dispose();
+    _domisiliRtController.dispose();
+    _domisiliRwController.dispose();
+    _domisiliKodePosController.dispose();
+    _nomorHpController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  UserModel _createUserModel() {
+    return UserModel(
+      namaLengkap: _namaLengkapController.text,
+      nik: _nikController.text,
+      jenisKelamin: selectedJenisKelamin == '1' ? true : false,
+      tempatLahir: _tempatLahirController.text,
+      tanggalLahir: selectedTanggalLahir,
+      alamat: _alamatController.text,
+      rt: _rtController.text,
+      rw: _rwController.text,
+      kodePos: _kodePosController.text,
+      kelurahanDesa: _kelurahanDesaController.text,
+      kecamatan: _kecamatanController.text,
+      kabupatenKota: _kabupatenKotaController.text,
+      provinsi: _provinsiController.text,
+      domisiliKelurahanDesa: _domisiliKelurahanDesaController.text,
+      domisiliKecamatan: _domisiliKecamatanController.text,
+      domisiliKabupatenKota: _domisiliKabupatenKotaController.text,
+      domisiliProvinsi: _domisiliProvinsiController.text,
+      domisiliAlamat: _domisiliAlamatController.text,
+      domisiliRt: _domisiliRtController.text,
+      domisiliRw: _domisiliRwController.text,
+      domisiliKodePos: _domisiliKodePosController.text,
+      nomorHp: _nomorHpController.text,
+      email: _emailController.text,
+      golonganDarah: selectedGolonganDarah,
+      password: _passwordController.text,
+      agama: "Islam", // Add agama field if needed
+    );
+  }
+
+  bool _validateForm() {
+    // Basic validation
+    if (_namaLengkapController.text.isEmpty ||
+        _nikController.text.isEmpty ||
+        selectedJenisKelamin == null ||
+        _tempatLahirController.text.isEmpty ||
+        selectedTanggalLahir == null ||
+        _alamatController.text.isEmpty ||
+        _rtController.text.isEmpty ||
+        _rwController.text.isEmpty ||
+        _kodePosController.text.isEmpty ||
+        _kelurahanDesaController.text.isEmpty ||
+        _kecamatanController.text.isEmpty ||
+        _kabupatenKotaController.text.isEmpty ||
+        _provinsiController.text.isEmpty ||
+        selectedGolonganDarah == null ||
+        _nomorHpController.text.isEmpty ||
+        _passwordController.text.isEmpty ||
+        _emailController.text.isEmpty) {
+      AppAlert.snakBarShow(context, "Mohon lengkapi semua field yang wajib diisi", AppColors.dangerColor);
+      return false;
+    }
+
+    if (isTermsAccepted) {
+      print("is Term : ${isTermsAccepted}");
+      AppAlert.snakBarShow(context, "Anda harus menyetujui syarat dan ketentuan", AppColors.dangerColor);
+      return false;
+    }
+
+    if (_passwordController.text != _confirmPasswordController.text) {
+      AppAlert.snakBarShow(context, "Password tidak sama", AppColors.dangerColor);
+      return false;
+    }
+
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +254,7 @@ class RegisterPage extends StatelessWidget {
                       AppAlert.snakBarShow(
                         context,
                         state.message,
+                        AppColors.secondaryColor
                       );
                     }
                   },
@@ -188,17 +325,16 @@ class RegisterPage extends StatelessWidget {
                                             const SizedBox(width: 5.5),
                                             AppButton(
                                               text: "Lanjutkan",
-                                              onPressedButton:
-                                                  currentStep.count != 0
-                                                      ? () {
-                                                        if (fmState is RegisterInitial) {
-                                                          context.read<RegisterBloc>().add(
-                                                            Submit(fmState.user,
-                                                            ),
-                                                          );
-                                                        }
+                                              onPressedButton: currentStep.count != 0
+                                                  ? () {
+                                                      if (_validateForm()) {
+                                                        final user = _createUserModel();
+                                                        context.read<RegisterBloc>().add(
+                                                          Submit(user),
+                                                        );
                                                       }
-                                                      : details.onStepContinue,
+                                                    }
+                                                  : details.onStepContinue,
                                               xPadding:
                                                   currentStep.count != 0
                                                       ? 30.0
@@ -218,9 +354,8 @@ class RegisterPage extends StatelessWidget {
                                                 label: "NAMA LENGKAP",
                                                 hint: "Nama Sesuai KTP",
                                                 required: true,
-                                                onChange: (value) {
-                                                  
-                                                },
+                                                controller: _namaLengkapController,
+                                                textInputFormatter: UpperCaseTextFormatter()
                                               ).input(),
                                               AppInput(
                                                 label: "NIK",
@@ -232,12 +367,15 @@ class RegisterPage extends StatelessWidget {
                                                 onChange: (value) {
                                                   
                                                 },
+                                                controller: _nikController
                                               ).input(),
                                               BlocBuilder<
                                                 CalendarCubit,
                                                 CalendarState
                                               >(
                                                 builder: (context, state) {
+                                                  selectedTanggalLahir =
+                                                      state.tanggal;
                                                   return AppInput(
                                                     yPadding: 5.5,
                                                     label:
@@ -245,6 +383,8 @@ class RegisterPage extends StatelessWidget {
                                                     hint: "Tempat",
                                                     required: true,
                                                     secondHint: "dd/mm/yyyy",
+                                                    controller:
+                                                        _tempatLahirController,
                                                     icon: Icons.calendar_today,
                                                     onIconPressed: () async {
                                                       DateTime? picked =
@@ -330,6 +470,8 @@ class RegisterPage extends StatelessWidget {
                                                                   context,
                                                                   state,
                                                                 ) {
+                                                                  selectedJenisKelamin =
+                                                                      state.value;
                                                                   return Checkbox(
                                                                     materialTapTargetSize:
                                                                         MaterialTapTargetSize
@@ -380,6 +522,8 @@ class RegisterPage extends StatelessWidget {
                                                                   context,
                                                                   state,
                                                                 ) {
+                                                                  selectedJenisKelamin =
+                                                                      state.value;
                                                                   return Checkbox(
                                                                     materialTapTargetSize:
                                                                         MaterialTapTargetSize
@@ -467,6 +611,8 @@ class RegisterPage extends StatelessWidget {
                                                                       context,
                                                                       state,
                                                                     ) {
+                                                                      selectedGolonganDarah =
+                                                                          state.value;
                                                                       return Checkbox(
                                                                         materialTapTargetSize:
                                                                             MaterialTapTargetSize.values.last,
@@ -514,6 +660,8 @@ class RegisterPage extends StatelessWidget {
                                                                       context,
                                                                       state,
                                                                     ) {
+                                                                      selectedGolonganDarah =
+                                                                          state.value;
                                                                       return Checkbox(
                                                                         materialTapTargetSize:
                                                                             MaterialTapTargetSize.values.last,
@@ -565,6 +713,8 @@ class RegisterPage extends StatelessWidget {
                                                                       context,
                                                                       state,
                                                                     ) {
+                                                                      selectedGolonganDarah =
+                                                                          state.value;
                                                                       return Checkbox(
                                                                         materialTapTargetSize:
                                                                             MaterialTapTargetSize.values.last,
@@ -612,6 +762,8 @@ class RegisterPage extends StatelessWidget {
                                                                       context,
                                                                       state,
                                                                     ) {
+                                                                      selectedGolonganDarah =
+                                                                          state.value;
                                                                       return Checkbox(
                                                                         materialTapTargetSize:
                                                                             MaterialTapTargetSize.values.last,
@@ -664,6 +816,7 @@ class RegisterPage extends StatelessWidget {
                                                 onChange: (value) {
                                                  
                                                 },
+                                                controller: _alamatController,
                                               ).input(),
                                               AppInput(
                                                 label: "RT",
@@ -677,6 +830,8 @@ class RegisterPage extends StatelessWidget {
                                                 onChange: (value) {
                                                   
                                                 },
+                                                controller: _rtController,
+                                                secondController: _rwController,
                                                 onChangeSecond: (value) {
                                                   
                                                 },
@@ -687,6 +842,7 @@ class RegisterPage extends StatelessWidget {
                                                 onChange: (value) {
                                                   
                                                 },
+                                                controller: _kodePosController,
                                                 required: true,
                                                 keyboardType:
                                                     TextInputType.number,
@@ -701,6 +857,8 @@ class RegisterPage extends StatelessWidget {
                                                 onChange: (value) {
                                                   
                                                 },
+                                                controller: _kelurahanDesaController,
+                                                secondController: _kecamatanController,
                                                 onChangeSecond: (value) {
                                                   
                                                 },
@@ -715,6 +873,8 @@ class RegisterPage extends StatelessWidget {
                                                 onChange: (value) {
                                                   
                                                 },
+                                                controller: _kabupatenKotaController,
+                                                secondController: _provinsiController,
                                                 onChangeSecond: (value) {
                                                   
                                                 },
@@ -737,6 +897,8 @@ class RegisterPage extends StatelessWidget {
                                                 onChange: (value) {
                                                   
                                                 },
+                                                controller: _domisiliKelurahanDesaController,
+                                                secondController: _domisiliKecamatanController,
                                                 onChangeSecond: (value) {
                                                   
                                                 },
@@ -751,6 +913,8 @@ class RegisterPage extends StatelessWidget {
                                                 onChange: (value) {
                                                   
                                                 },
+                                                controller: _domisiliKabupatenKotaController,
+                                                secondController: _domisiliProvinsiController,
                                                 onChangeSecond: (value) {
                                                   
                                                 },
@@ -803,6 +967,14 @@ class RegisterPage extends StatelessWidget {
                                                 onChange: (value) {
                                                   
                                                 },
+                                                controller: _nomorHpController
+                                              ).input(),
+                                              AppInput(
+                                                label: "EMAIL",
+                                                hint: "Alamat Email",
+                                                required: true,
+                                                controller: _emailController,
+                                                keyboardType: TextInputType.emailAddress
                                               ).input(),
                                               BlocProvider(
                                                 create:
@@ -818,6 +990,7 @@ class RegisterPage extends StatelessWidget {
                                                       label: "KATA SANDI",
                                                       hint: "Kata Sandi",
                                                       required: true,
+                                                      controller: _passwordController,
                                                       isPassword: state.value,
                                                       icon:
                                                           state.value
@@ -861,6 +1034,7 @@ class RegisterPage extends StatelessWidget {
                                                           "Konfirmasi Kata Sandi",
                                                       required: true,
                                                       isPassword: state.value,
+                                                      controller: _confirmPasswordController,
                                                       icon:
                                                           state.value
                                                               ? Icons.visibility

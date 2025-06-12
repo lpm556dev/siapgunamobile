@@ -4,14 +4,14 @@ import 'package:ssg_app/utils/app_colors.dart';
 import 'package:ssg_app/utils/app_text_style.dart';
 
 class AppAlert {
-  static void snakBarShow(BuildContext context, String content) {
+  static void snakBarShow(BuildContext context, String content, [Color? alertColor]) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(content, style: AppTextStyle.caption),
         duration: Duration(seconds: 3),
         dismissDirection: DismissDirection.horizontal,
         showCloseIcon: true,
-        backgroundColor: AppColors.primaryColor,
+        backgroundColor: alertColor ?? AppColors.primaryColor,
         closeIconColor: AppColors.lightColor,
       ),
     );

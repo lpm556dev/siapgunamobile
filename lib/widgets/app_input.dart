@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ssg_app/utils/app_text_style.dart';
 
 class AppInput {
@@ -20,6 +21,8 @@ class AppInput {
   final String? secondLabel;
   final dynamic onChange;
   final dynamic onChangeSecond;
+  final bool isCapitalized;
+  final TextInputFormatter? textInputFormatter;
 
   const AppInput({
     required this.label,
@@ -40,6 +43,8 @@ class AppInput {
     this.secondLabel,
     this.onChange,
     this.onChangeSecond,
+    this.isCapitalized = false,
+    this.textInputFormatter,
   });
   Widget _inputPadding(Widget child, String textLabel) {
     return Padding(
@@ -88,6 +93,12 @@ class AppInput {
         controller: controller,
         keyboardType: keyboardType,
         obscureText: isPassword,
+        textCapitalization: isCapitalized
+            ? TextCapitalization.words
+            : TextCapitalization.none,
+        inputFormatters: [
+          if (textInputFormatter != null) textInputFormatter!,
+        ],
         decoration: InputDecoration(
           hintText: hint,
           border: OutlineInputBorder(
@@ -223,5 +234,15 @@ class AppInput {
             ),
           ],
         );
+  }
+}
+
+class UpperCaseTextFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    return TextEditingValue(
+      text: newValue.text.toUpperCase(),
+      selection: newValue.selection,
+    );
   }
 }
