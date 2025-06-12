@@ -136,18 +136,18 @@ class _RegisterPageState extends State<RegisterPage> {
         _nomorHpController.text.isEmpty ||
         _passwordController.text.isEmpty ||
         _emailController.text.isEmpty) {
-      AppAlert.snakBarShow(context, "Mohon lengkapi semua field yang wajib diisi", AppColors.dangerColor);
+      AppAlert.snakBarShow(context, "Mohon lengkapi semua field yang wajib diisi", AppColors.secondaryColor, AppColors.darkColor);
       return false;
     }
 
     if (isTermsAccepted) {
       print("is Term : ${isTermsAccepted}");
-      AppAlert.snakBarShow(context, "Anda harus menyetujui syarat dan ketentuan", AppColors.dangerColor);
+      AppAlert.snakBarShow(context, "Anda harus menyetujui syarat dan ketentuan", AppColors.secondaryColor, AppColors.darkColor);
       return false;
     }
 
     if (_passwordController.text != _confirmPasswordController.text) {
-      AppAlert.snakBarShow(context, "Password tidak sama", AppColors.dangerColor);
+      AppAlert.snakBarShow(context, "Password tidak sama", AppColors.secondaryColor, AppColors.darkColor);
       return false;
     }
 
@@ -254,7 +254,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       AppAlert.snakBarShow(
                         context,
                         state.message,
-                        AppColors.secondaryColor
+                        AppColors.dangerColor,
                       );
                     }
                   },
@@ -1052,19 +1052,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                                                         .value,
                                                               ),
                                                             );
-                                                      },
-                                                      onChange: (value) {
-                                                        if (fmState
-                                                                is RegisterInitial &&
-                                                            fmState
-                                                                    .user!
-                                                                    .password !=
-                                                                value) {
-                                                          AppAlert.snakBarShow(
-                                                            context,
-                                                            "password tidak sama",
-                                                          );
-                                                        }
                                                       },
                                                     ).input();
                                                   },
